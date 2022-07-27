@@ -1,21 +1,22 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../../styles/Ninjas.module.css';
 
 const Ninjas = ({ninjas}) => {
 	return (
 		<>
 			<Head>
-				<title>Ninja List | Ninjas</title>
+				<title>Ninja List | All Ninjas</title>
 				<meta name="keywords" content="ninja" />
 			</Head>
 			<div>
 				<h1>All Ninjas</h1>
 				{ninjas.map(ninja => (
-					<div key={ninja.id}>
+					<Link href={'/ninjas/' + ninja.id} key={ninja.id}>
 						<a className={styles.single}>
 							<h3>{ninja.name}</h3>
 						</a>
-					</div>
+					</Link>
 				))}
 			</div>
 		</>
